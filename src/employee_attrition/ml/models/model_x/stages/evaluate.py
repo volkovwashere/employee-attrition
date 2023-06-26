@@ -1,4 +1,3 @@
-from catboost import CatBoostClassifier
 from employee_attrition.data.preprocessor.extract import extract_feature_columns, extract_label_column, load_dataset_mock
 from employee_attrition.data.preprocessor.transform import transform_labels, transform_numerical_features, split_dataset
 from sklearn.metrics import classification_report

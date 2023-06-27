@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c041074ff5dc4594a46a3d1b17ed8a4b/artifacts
+end_time: 1687711122431
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c041074ff5dc4594a46a3d1b17ed8a4b
+run_name: legendary-sheep-413
+run_uuid: c041074ff5dc4594a46a3d1b17ed8a4b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687711121143
+status: 4
+tags: []
+user_id: volkr

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/1baed31c1b1f45b1bd227f43723ca2d3/artifacts
+end_time: 1687707366791
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1baed31c1b1f45b1bd227f43723ca2d3
+run_name: carefree-boar-463
+run_uuid: 1baed31c1b1f45b1bd227f43723ca2d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687707365893
+status: 4
+tags: []
+user_id: volkr

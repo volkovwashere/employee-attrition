@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c52e4abdb5e54108a756be8006e8b228/artifacts
+end_time: 1687709709721
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c52e4abdb5e54108a756be8006e8b228
+run_name: suave-ape-892
+run_uuid: c52e4abdb5e54108a756be8006e8b228
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687709709673
+status: 4
+tags: []
+user_id: volkr

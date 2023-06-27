@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/ad8b6d2840da474d91efec8cdc87475f/artifacts
+end_time: 1687711158527
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ad8b6d2840da474d91efec8cdc87475f
+run_name: likeable-wasp-562
+run_uuid: ad8b6d2840da474d91efec8cdc87475f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687711157021
+status: 4
+tags: []
+user_id: volkr

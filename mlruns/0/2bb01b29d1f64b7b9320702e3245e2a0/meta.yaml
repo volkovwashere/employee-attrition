@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/2bb01b29d1f64b7b9320702e3245e2a0/artifacts
+end_time: 1687707689293
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2bb01b29d1f64b7b9320702e3245e2a0
+run_name: respected-goose-349
+run_uuid: 2bb01b29d1f64b7b9320702e3245e2a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687707688427
+status: 3
+tags: []
+user_id: volkr

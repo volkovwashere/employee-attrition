@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/b2952867dd6d49d38d29ba52178b5a2f/artifacts
+end_time: 1687706354186
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b2952867dd6d49d38d29ba52178b5a2f
+run_name: angry-vole-807
+run_uuid: b2952867dd6d49d38d29ba52178b5a2f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687706353222
+status: 4
+tags: []
+user_id: volkr

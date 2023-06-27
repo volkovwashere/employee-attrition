@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/9b5fd5029de04973a6f209276d11fd4d/artifacts
+end_time: 1687711607448
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9b5fd5029de04973a6f209276d11fd4d
+run_name: angry-foal-428
+run_uuid: 9b5fd5029de04973a6f209276d11fd4d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687711605857
+status: 4
+tags: []
+user_id: volkr

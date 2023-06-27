@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/fd096d5800794c7ba64acc1f5ca16c80/artifacts
+end_time: 1687707730959
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fd096d5800794c7ba64acc1f5ca16c80
+run_name: enthused-mink-674
+run_uuid: fd096d5800794c7ba64acc1f5ca16c80
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687707727766
+status: 3
+tags: []
+user_id: volkr

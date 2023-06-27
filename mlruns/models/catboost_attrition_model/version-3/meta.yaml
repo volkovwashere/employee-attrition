@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1687709759034
+current_stage: None
+description: ''
+last_updated_timestamp: 1687709759034
+name: catboost_attrition_model
+run_id: e1ec0f48c8f94eef8042fe3a9043bd4a
+run_link: ''
+source: mlflow-artifacts:/0/e1ec0f48c8f94eef8042fe3a9043bd4a/artifacts/employee_attrition
+status: READY
+status_message: null
+user_id: null
+version: 3

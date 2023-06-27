@@ -1,0 +1,15 @@
+artifact_uri: file:///home/volkr/repos/employee-attrition/src/employee_attrition/ml/models/model_x/mlruns/0/3bea13eef8a3447798167d6c9b6f37ac/artifacts
+end_time: 1687704668471
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3bea13eef8a3447798167d6c9b6f37ac
+run_name: sincere-rook-478
+run_uuid: 3bea13eef8a3447798167d6c9b6f37ac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687704665516
+status: 3
+tags: []
+user_id: volkr

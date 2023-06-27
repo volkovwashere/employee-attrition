@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/24550d432e104c598be7297bbeea1772/artifacts
+end_time: 1687711309551
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 24550d432e104c598be7297bbeea1772
+run_name: hilarious-hen-311
+run_uuid: 24550d432e104c598be7297bbeea1772
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687711307717
+status: 3
+tags: []
+user_id: volkr

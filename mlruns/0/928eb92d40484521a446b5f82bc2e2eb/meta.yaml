@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/928eb92d40484521a446b5f82bc2e2eb/artifacts
+end_time: 1687710366440
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 928eb92d40484521a446b5f82bc2e2eb
+run_name: unequaled-shark-666
+run_uuid: 928eb92d40484521a446b5f82bc2e2eb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1687710366392
+status: 4
+tags: []
+user_id: volkr

@@ -2,13 +2,16 @@ from employee_attrition.data.preprocessor.extract import extract_feature_columns
 from employee_attrition.data.preprocessor.transform import transform_labels, transform_numerical_features, split_dataset
 from sklearn.metrics import classification_report
 
-def _save_evaluation_results(results: dict) -> None:
-    import json
-    with open("model_artifacts/results.json", "w") as f:
-        json.dump(results, f)
 
-    
-def eval_stage(run_id: str) -> None:
+def eval_stage(run_id: str = None) -> None:
+    """
+    Runs the eval stage of the current ml pipeline.
+    Args:
+        run_id (str): Defaults to None. Current mlflow experiment run id.
+
+    Returns:
+        None
+    """
     import mlflow
     from mlflow.tracking import MlflowClient
 
@@ -18,7 +21,7 @@ def eval_stage(run_id: str) -> None:
     latest_model = client.search_model_versions("name='catboost_attrition_model'")[0]
 
     with mlflow.start_run(run_id=run_id, nested=True) as run:
-        print(f"Running evaluation stage with id: {run.info.run_id}")
+        print(f"Running evaluation stage with id: {run.info.run_id}")  # should be logger.info later ...
         # load data
         df = load_dataset_mock()
         df_features = extract_feature_columns(df)
@@ -56,9 +59,10 @@ def eval_stage(run_id: str) -> None:
             updated_results_per_label.append({
                 f"{stage}/class_{label}/{k}": round(v, 4) for k, v in result.items()
             })
-        formated_report = updated_results_per_label[0] | updated_results_per_label[1]
-        mlflow.log_metrics(formated_report)
+        formatted_report = updated_results_per_label[0] | updated_results_per_label[1]
+        mlflow.log_metrics(formatted_report)
         mlflow.set_tags(latest_model.__dict__)
+
 
 if __name__ == "__main__":
     eval_stage()

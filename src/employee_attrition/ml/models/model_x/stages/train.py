@@ -1,16 +1,31 @@
 from catboost import CatBoostClassifier
-from employee_attrition.data.preprocessor.extract import extract_feature_columns, extract_label_column, load_dataset_mock
+from employee_attrition.data.preprocessor.extract import extract_feature_columns, extract_label_column, \
+    load_dataset_mock
 from employee_attrition.data.preprocessor.transform import transform_labels, transform_numerical_features, split_dataset
 from sklearn.metrics import classification_report
 from numpy import ndarray
-from typing import List, Optional
+from typing import List, Optional, Dict
+
 
 def _create_classification_report(
-        target:ndarray,
-        preds:ndarray,
+        target: ndarray,
+        preds: ndarray,
         labels: List[str],
         stage: str,
-    ) -> dict:
+) -> Dict[str, float]:
+    """
+    This function creates and formats the classification report. It uses the sklearn clf report function
+    to calculate the results and then a custom formatter function is applied on the output. In the end the
+    result dict will be compatible with mlflow and can be exported.
+    Args:
+        target (ndarray): 1D np array that contains the targets 0, 1.
+        preds (ndarray): 1D np array that contains the predicted outputs.
+        labels (Listr[str]): List of the original label names.
+        stage (str): ML lifecycle stage, can be train, validation, test.
+
+    Returns:
+        Dictionary with formatted results Dict[str, float]
+    """
     results = classification_report(
         target,
         preds,
@@ -27,12 +42,22 @@ def _create_classification_report(
             f"{stage}/class_{label}/{k}": round(v, 4) for k, v in result.items()
         })
 
-    formated_results = updated_results_per_label[0] | updated_results_per_label[1] | {f"{stage}/accuracy": results["accuracy"]}
-    return formated_results
-    
+    formatted_results = updated_results_per_label[0] | updated_results_per_label[1] | {
+        f"{stage}/accuracy": results["accuracy"]}
+    return formatted_results
 
 
-def train_stage(run_id: Optional[str]) -> None:
+def train_stage(run_id: Optional[str] = None) -> None:
+    """
+    This function contains the main logic for the train stage in the ml pipeline. It
+    conducts training for a catboost classifier model, and then registers the model at
+    the end of the job based on some logic / strategy pre-defined.
+    Args:
+        run_id (str): Current run id if exists.
+
+    Returns:
+        None
+    """
     import mlflow
     from mlflow.models.signature import infer_signature
 
@@ -86,12 +111,16 @@ def train_stage(run_id: Optional[str]) -> None:
         mlflow.log_params(model_params)
         mlflow.log_metrics(train_results)
         mlflow.log_metrics(val_results)
-        # mlflow.sklearn.log_model(
-        #     sk_model=model,
-        #     artifact_path="employee_attrition",
-        #     signature=signature,
-        #     registered_model_name="catboost_attrition_model",
-        # )
+        mlflow.sklearn.log_model(
+            sk_model=model,
+            artifact_path="employee_attrition",
+            signature=signature,
+            registered_model_name="catboost_attrition_model",
+        )
+        # currently every model is logged but later some logic could be applied like
+        # compare candidate model results to prod model results based on key metrics
+        # and if candidate is better push model to registry or etc some other strategy
+
 
 if __name__ == "__main__":
     train_stage()

@@ -58,3 +58,9 @@ And you should be able to use mlflow ui at localhost:5000 and do inference at lo
 - Add tests
 - Add parameter config file
 - Use autoformatting
+
+
+### Projects structuring high level overview
+![image](https://github.com/volkovwashere/employee-attrition/assets/57996039/bc1f62ee-5244-4490-84a2-51271896edc9)
+
+

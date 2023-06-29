@@ -2,6 +2,7 @@ from catboost import CatBoostClassifier
 from employee_attrition.data.preprocessor.extract import extract_feature_columns, extract_label_column, \
     load_dataset_mock
 from employee_attrition.data.preprocessor.transform import transform_labels, transform_numerical_features, split_dataset
+from employee_attrition.ml.models.model_x.constants import MLFLOW_TRACKING_URI
 from sklearn.metrics import classification_report
 from numpy import ndarray
 from typing import List, Optional, Dict
@@ -61,7 +62,7 @@ def train_stage(run_id: Optional[str] = None) -> None:
     import mlflow
     from mlflow.models.signature import infer_signature
 
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     with mlflow.start_run(run_id=run_id, nested=True) as run:
         print(f"Starting training run on mlflow with run id: {run.info.run_id}")
         # load data

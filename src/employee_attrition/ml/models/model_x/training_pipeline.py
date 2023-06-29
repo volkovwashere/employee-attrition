@@ -1,5 +1,6 @@
 from employee_attrition.ml.models.model_x.stages.train import train_stage
 from employee_attrition.ml.models.model_x.stages.evaluate import eval_stage
+from employee_attrition.ml.models.model_x.constants import MLFLOW_TRACKING_URI
 import mlflow
 
 
@@ -10,7 +11,7 @@ def main() -> None:
         None
     """
     # Note the tracking uri could be some constant parameter that is shared everywhere it's needed.
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     with mlflow.start_run() as run:
         print("Started running employee attrition training pipeline ...")
 

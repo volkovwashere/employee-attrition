@@ -1,5 +1,6 @@
 from employee_attrition.data.preprocessor.extract import extract_feature_columns, extract_label_column, load_dataset_mock
 from employee_attrition.data.preprocessor.transform import transform_labels, transform_numerical_features, split_dataset
+from employee_attrition.ml.models.model_x.constants import MLFLOW_TRACKING_URI
 from sklearn.metrics import classification_report
 
 
@@ -16,7 +17,7 @@ def eval_stage(run_id: str = None) -> None:
     from mlflow.tracking import MlflowClient
 
     assert run_id, "Run id must be provided."
-    mlflow.set_tracking_uri(uri:="http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(uri := MLFLOW_TRACKING_URI)
     client = MlflowClient(uri)
     latest_model = client.search_model_versions("name='catboost_attrition_model'")[0]
 

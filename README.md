@@ -50,7 +50,7 @@ Simply run
 ~~~
 docker-compose up
 ~~~
-And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under src/employee_attrition/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui.
+And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under tests/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui.
 
 ### Further todos
 - Add model registry logic as currently every model is saved

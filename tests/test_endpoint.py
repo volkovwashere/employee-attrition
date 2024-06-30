@@ -12,7 +12,7 @@ df = pd.read_csv("../src/employee_attrition/data/fake_db/employee-attrition.csv"
 df_features = extract_feature_columns(df)
 train_x, _, test_x = split_dataset(df_features, 0.3)
 
-inference_inputs = test_x.head(10)  # lets assume that we got this from somewhere else
+inference_inputs = test_x.head(100)  # lets assume that we got this from somewhere else
 
 
 def inference_preprocessor(training_data: pd.DataFrame, inference_data: pd.DataFrame) -> pd.DataFrame:

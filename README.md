@@ -31,7 +31,7 @@ cd employee-attrition
 pip install -r requirements.txt
 ~~~
 ~~~
-python <path_to_script>/training_pipeline.py
+python <path_to_script>/pipeline.py
 ~~~
 Note that you also need to run the mlflow server which will be exposed on http://localhost:5000 by default:
 ~~~

@@ -14,7 +14,8 @@ __RECOMMENDED use with docker compose__
 ~~~
 docker-compose up
 ~~~
-And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under tests/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui. Additionally a simple one click submit user interface can be accessed at localhost:8501.
+And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under tests/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui. Additionally a simple one click submit user interface can be accessed at localhost:8501. <br/>
+Note that at the first startup the inference endpoint probably wont work as it can't find any registered model. After running the first pipeline, restart the compose or the inference container. The tracking server is running on a local sql db.
 
 <!-- Getting started -->
 ## Getting started

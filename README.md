@@ -10,8 +10,7 @@ The application was built with:
 - MlFlow
 - Docker
 
-__RECOMMENDED use docker__
-Simply run
+__RECOMMENDED use with docker compose__
 ~~~
 docker-compose up
 ~~~

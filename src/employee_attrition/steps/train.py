@@ -1,6 +1,6 @@
 from catboost import CatBoostClassifier
 from employee_attrition.steps.utils.transform import transform_numerical_features
-from src.employee_attrition.steps.utils.metrics import create_classification_report
+from employee_attrition.steps.utils.metrics import create_classification_report
 
 
 def train_step(*args, run_id: str) -> CatBoostClassifier:
@@ -27,9 +27,9 @@ def train_step(*args, run_id: str) -> CatBoostClassifier:
         # configure params (for now only hardcoding it instead of creating a conf file)
         model_params = {
             "iterations": 100,
-            'learning_rate': 0.1,
-            'depth': 6,
-            'l2_leaf_reg': 5,
+            "learning_rate": 0.1,
+            "depth": 6,
+            "l2_leaf_reg": 5,
         }
 
         # start training
@@ -38,7 +38,6 @@ def train_step(*args, run_id: str) -> CatBoostClassifier:
             train_x,
             train_y,
             eval_set=(val_x, val_y),
-            plot_file="attrition_train_results",
         )
 
         # make clf
@@ -59,4 +58,3 @@ def train_step(*args, run_id: str) -> CatBoostClassifier:
         mlflow.log_metrics(train_results)
         mlflow.log_metrics(val_results)
         return model
-    

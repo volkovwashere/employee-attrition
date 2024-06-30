@@ -12,21 +12,16 @@ def test_step(*args, run_id: str) -> None:
         None
     """
     import mlflow
-    from mlflow.tracking import MlflowClient
 
-    mlflow.set_tracking_uri(uri := "http://127.0.0.1:5000")
-    client = MlflowClient(uri)
-    latest_model = client.search_model_versions("name='catboost_attrition_model'")[0]
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
     with mlflow.start_run(run_id=run_id, nested=True) as run:
         print(f"Running evaluation stage with id: {run.info.run_id}")  # should be logger.info later ...
-        # load data
-        # split data
         test_x, test_y, catboost_model = args
 
         # apply standarscaler after splitting the data
         test_x = transform_numerical_features(test_x)[0]
-        
+
         # predict the test dataset
         predictions = catboost_model.predict(test_x)
         target_names = ["no", "yes"]
@@ -37,16 +32,11 @@ def test_step(*args, run_id: str) -> None:
             target_names=target_names,
             output_dict=True,
         )
-        
+
         # format report NOTE this could be a general util function ...
-        results_per_label = tuple(
-            clf_report[label] for label in target_names
-        )
+        results_per_label = tuple(clf_report[label] for label in target_names)
         updated_results_per_label = []
         for result, label in zip(results_per_label, target_names):
-            updated_results_per_label.append({
-                f"{stage}/class_{label}/{k}": round(v, 4) for k, v in result.items()
-            })
+            updated_results_per_label.append({f"{stage}/class_{label}/{k}": round(v, 4) for k, v in result.items()})
         formatted_report = updated_results_per_label[0] | updated_results_per_label[1]
         mlflow.log_metrics(formatted_report)
-        mlflow.set_tags(latest_model.__dict__)

@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
-from employee_attrition.data.preprocessor.extract import extract_feature_columns
-from employee_attrition.data.preprocessor.transform import split_dataset
+from employee_attrition.steps.utils.extract import extract_feature_columns
+from employee_attrition.steps.utils.transform import split_dataset
 from sklearn.preprocessing import StandardScaler
 import json
 
@@ -17,7 +17,7 @@ inference_inputs = test_x.head(100)  # lets assume that we got this from somewhe
 
 def inference_preprocessor(training_data: pd.DataFrame, inference_data: pd.DataFrame) -> pd.DataFrame:
     standardized_data = StandardScaler().fit_transform(pd.concat([training_data, inference_data]))
-    standardized_data = standardized_data[training_data.shape[0]:]
+    standardized_data = standardized_data[training_data.shape[0] :]
     standardized_df = pd.DataFrame(data=standardized_data, columns=training_data.columns)
     assert standardized_df.shape == inference_data.shape, "shape mismatch between std df and inference df"
     return standardized_df
@@ -26,7 +26,7 @@ def inference_preprocessor(training_data: pd.DataFrame, inference_data: pd.DataF
 inference_inputs = inference_preprocessor(train_x, inference_inputs)
 
 headers = {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
 }
 r = requests.post(
     url="http://127.0.0.1:5002/invocations",

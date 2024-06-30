@@ -1,5 +1,6 @@
-from src.employee_attrition.steps.utils.extract import load_dataset_mock, extract_feature_columns, extract_label_column
-from src.employee_attrition.steps.utils.transform import transform_labels, split_dataset
+from employee_attrition.steps.utils.extract import load_dataset_mock, extract_feature_columns, extract_label_column
+from employee_attrition.steps.utils.transform import transform_labels, split_dataset
+
 
 def preprocess_data_step(dataset_path: str = None) -> tuple:
     # load data

@@ -10,6 +10,13 @@ The application was built with:
 - MlFlow
 - Docker
 
+__RECOMMENDED use docker__
+Simply run
+~~~
+docker-compose up
+~~~
+And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under tests/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui. Additionally a simple one click submit user interface can be accessed at localhost:8501.
+
 <!-- Getting started -->
 ## Getting started
 ### Prequisites
@@ -44,13 +51,6 @@ export MLFLOW_TRACKING_URI=http://localhost:5000
 ~~~
 mlflow models serve -m "models:/catboost_attrition_model/latest" -p 5002 --no-conda
 ~~~
-
-__RECOMMENDED use docker__
-Simply run
-~~~
-docker-compose up
-~~~
-And you should be able to use mlflow ui at localhost:5000 and do inference at localhost:5002/invocations. An example rest api request is set up under tests/test_endpoint.py . Further documentations of the input/output structure the inference pipeline expects can be found at the mfllow ui.
 
 ### Further todos
 - Add model registry logic as currently every model is saved

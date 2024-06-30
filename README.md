@@ -61,6 +61,8 @@ And you should be able to use mlflow ui at localhost:5000 and do inference at lo
 
 
 ### Projects structuring high level overview
-![image](https://github.com/volkovwashere/employee-attrition/assets/57996039/bc1f62ee-5244-4490-84a2-51271896edc9)
+![image](https://github.com/volkovwashere/employee-attrition/assets/57996039/cc8df154-2106-4781-9c02-b816743e001e)
 
+### UI simple layout
+![image](https://github.com/volkovwashere/employee-attrition/assets/57996039/9f763001-a86a-47ab-b527-680562886b33)
 

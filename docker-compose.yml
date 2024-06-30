@@ -8,6 +8,14 @@ services:
     build:
       dockerfile: inference.Dockerfile
     environment:
-        - MLFLOW_TRACKING_URI=http://mlflow-ui:5000
+      - MLFLOW_TRACKING_URI=http://mlflow-ui:5000
     ports:
       - "5002:5002"
+  streamlit-ui:
+    build:
+      dockerfile: streamlit.Dockerfile
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow-ui:5000
+      - MLFOW_INFERENCE_ENDPIPOINT_URI=http://mlflow-inference:5002
+    ports:
+      - "8501:8501"

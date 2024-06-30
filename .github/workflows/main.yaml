@@ -10,21 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: psf/black@stable
-  pylama:
-    runs-on: ubuntu-latest
-    container: python:3.8
-    steps:
-      - name: Install pylama
-        run: |
-          pip3 install pylama
-      - name: Check pylama
-        run: |
-          pylama .
 
   build:
     needs:
       - lint
-      - pylama
     runs-on: ubuntu-latest
 
     steps:

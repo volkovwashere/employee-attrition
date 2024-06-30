@@ -1,3 +1,4 @@
+import os
 import mlflow
 from mlflow.models.signature import infer_signature
 
@@ -6,7 +7,7 @@ def _is_prod_ready():
 
 def deploy_model_step(*args, run_id: str) -> None:
     """"""
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
     train_x, train_y, model = args
     with mlflow.start_run(run_id=run_id, nested=True) as _:
         if _is_prod_ready():

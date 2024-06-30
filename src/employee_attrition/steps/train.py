@@ -1,3 +1,4 @@
+import os
 from catboost import CatBoostClassifier
 from employee_attrition.steps.utils.transform import transform_numerical_features
 from employee_attrition.steps.utils.metrics import create_classification_report
@@ -16,7 +17,7 @@ def train_step(*args, run_id: str) -> CatBoostClassifier:
     """
     import mlflow
 
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
     with mlflow.start_run(run_id=run_id, nested=True) as run:
         print(f"Starting training run on mlflow with run id: {run.info.run_id}")
         train_x, train_y, val_x, val_y = args

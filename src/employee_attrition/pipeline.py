@@ -1,3 +1,4 @@
+import os
 import mlflow
 from employee_attrition.steps.test import test_step
 from employee_attrition.steps.train import train_step
@@ -6,7 +7,7 @@ from employee_attrition.steps.dataprep import preprocess_data_step
 
 
 def run_pipeline() -> None:
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
     with mlflow.start_run() as run:
         print("Starting data prep step ...")
         x, y = preprocess_data_step()
@@ -37,6 +38,3 @@ def run_pipeline() -> None:
             model,
             run_id=run.info.run_id,
         )
-
-
-run_pipeline()

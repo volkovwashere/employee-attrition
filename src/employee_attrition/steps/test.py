@@ -1,3 +1,4 @@
+import os
 from employee_attrition.steps.utils.transform import transform_numerical_features
 from sklearn.metrics import classification_report
 
@@ -13,7 +14,7 @@ def test_step(*args, run_id: str) -> None:
     """
     import mlflow
 
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 
     with mlflow.start_run(run_id=run_id, nested=True) as run:
         print(f"Running evaluation stage with id: {run.info.run_id}")  # should be logger.info later ...
